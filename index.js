@@ -18,7 +18,7 @@ app.use(express.json());
 
 app.use(cors());
 app.use(fileUpload({}));
-app.use(express.static("static"));
+app.use(express.static("./static"));
 app.use('/api', router);
 app.use('/auth', authRouter);
 
@@ -26,7 +26,9 @@ const startApp = async () => {
 	try {
 		await mongoose.connect(DB_URL, { useUnifiedTopology: true, useNewUrlParser: true });
 		app.listen(PORT, () => {
+
 			console.log('server work at', PORT);
+			return <h1>server work</h1>
 		});
 	} catch (error) {
 		console.log(error.message);
