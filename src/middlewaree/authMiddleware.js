@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 
-import config from "../../config/config.js";
+import config from "../config/config.js";
 
 export default (req, res, next) => {
 	if (req.method === 'OPTIONS') {
