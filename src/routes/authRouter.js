@@ -2,6 +2,7 @@ import Router from "express";
 
 import AuthController from "../controllers/AuthController.js";
 import registerValidation from "../validation/RegisterValidation.js";
+
 import authMiddleware from '../middlewaree/authMiddleware.js';
 
 const router = new Router();

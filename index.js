@@ -4,10 +4,12 @@ import mongoose from "mongoose";
 
 import cors from 'cors';
 
-import fileUpload from "express-fileupload";
+import multer from 'multer';
 
 import router from "./src/routes/router.js";
 import authRouter from "./src/routes/authRouter.js";
+import PostController from "./src/controllers/PostController.js";
+
 
 const PORT = process.env.PORT || 3001;
 const DB_URL = "mongodb+srv://muslim:pisyuka1@cluster0.ge1zz.mongodb.net/post?retryWrites=true&w=majority";
@@ -17,10 +19,23 @@ const app = express();
 app.use(express.json());
 
 app.use(cors());
-app.use(fileUpload({}));
-app.use(express.static("static"));
+
 app.use('/api', router);
 app.use('/auth', authRouter);
+app.use("/upload", express.static("upload"));
+
+const storage = multer.diskStorage({
+	destination: (_, __, cd) => {
+		cd(null, "upload");
+	},
+	filename: (_, file, cd) => {
+		cd(null, file.originalname);
+	}
+});
+
+const upload = multer({ storage });
+
+app.post('/upload', upload.single("picture"), PostController.upload);
 
 const startApp = async () => {
 	try {

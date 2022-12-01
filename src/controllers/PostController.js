@@ -2,6 +2,7 @@ import PostService from "../services/PostService.js";
 
 class PostController {
 	async create(req, res) {
+		console.log(req.user)
 		try {
 			const post = await PostService.create(req.body, req?.user);
 			return res.status(200).json(post);
@@ -11,7 +12,8 @@ class PostController {
 	}
 	async upload(req, res) {
 		try {
-			const imageUrl = await PostService.upload(req?.files?.picture);
+			const imageUrl = await PostService.upload(req?.file);
+
 			return res.status(200).json(imageUrl);
 		} catch (error) {
 			res.status(500).json(error.message);

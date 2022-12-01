@@ -1,3 +1,3 @@
 export default {
-	"secret": "SECRET_KEY_RANDOM",
+	secret: "SECRET_KEY_RANDOM",
 }

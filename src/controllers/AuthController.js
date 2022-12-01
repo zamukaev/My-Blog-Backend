@@ -62,7 +62,6 @@ class AuthController {
 			}
 			const token = generateAccessToken(user._id, user.roles);
 			const { password, ...userDate } = user._doc;
-			console.log(userDate)
 			return res.status(200).json({ token, ...userDate });
 
 		} catch (error) {
