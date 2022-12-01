@@ -1,0 +1,5 @@
+{
+	"secret": "SECRET_KEY_RANDOM",
+	"serverPort": 3001,
+	"dbUrl": "mongodb+srv://muslim:pisyuka1@cluster0.ge1zz.mongodb.net/post?retryWrites=true&w=majority"
+}
