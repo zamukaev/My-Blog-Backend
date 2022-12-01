@@ -11,7 +11,7 @@ export default (req, res, next) => {
 		if (!token) {
 			return res.status(403).json({ message: 'Benutzer ist nicht angemeldet!!!' });
 		}
-		const decodedDate = jwt.verify(token, config.get('secret'))
+		const decodedDate = jwt.verify(token, config.secret);
 		req.user = decodedDate;
 		next();
 

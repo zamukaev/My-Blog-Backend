@@ -9,8 +9,8 @@ import fileUpload from "express-fileupload";
 import router from "./src/routes/router.js";
 import authRouter from "./src/routes/authRouter.js";
 
-const PORT = process.env.PORT || config.get('serverPort');
-const DB_URL = config.get('dbUrl');
+const PORT = process.env.PORT || 3001;
+const DB_URL = "mongodb+srv://muslim:pisyuka1@cluster0.ge1zz.mongodb.net/post?retryWrites=true&w=majority";
 
 const app = express();
 
